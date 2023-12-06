@@ -5,6 +5,7 @@ import time
 
 telegram_bot_api = "6008447382:AAG-tSYm3NXbiMGlk6KXrRpr1AtN9PWLIIA"
 
+#Funcion mensajeria Telegram
 def teleSMS(sms):
     import requests
 
@@ -18,9 +19,9 @@ def teleSMS(sms):
     try:
         response = requests.get(send_text)
     except:
-        teleSMS('Error teleSMS')
+        teleSMS('Error en teleSMS')
     
-    
+# Funcion control de Ping    
 def alive(address):
     lost = 0
     for cont in range(3):
@@ -33,9 +34,10 @@ def alive(address):
         return False
     
     else:
-        teleSMS('Error Ping')
+        teleSMS('Error de Ping')
         return True
 
+# Captura de valores por SNMP
 def getOID(address):
     oid = "1.3.6.1.4.1.1918.2.13.10.40.10.0"
     comunidad = "public"
@@ -50,18 +52,15 @@ def getOID(address):
     try:
         return str(resultado[3][0].prettyPrint()[-3:])
     except:
-        teleSMS('Error getOID')
+        teleSMS('Error de getOID')
         return False
 
-
+# Main
 print("Comienza el Monitoreo")   
 alarmas = {} #inicializamos el diccionario
 alcanzables = {} # inicializamos diccionario de alcanzabilidad
 
-# abre la base de datos
-
-db = pykeepass.PyKeePass(r'\\intranet.sanjuan.edu.ar\DavWWWRoot\rea de Sistemas\Infraestructura IT\Red Interescolar\password.kdbx', password='aITX8QekV9IwS3f8Xij8')
-
+db = pykeepass.PyKeePass(r'\\intranet.sanjuan.edu.ar\DavWWWRoot\rea de Sistemas\Infraestructura IT\Red Interescolar\password.kdbx', password='aITX8QekV9IwS3f8Xij8') # abre la base de datos
 
 
 while True:
