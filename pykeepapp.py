@@ -3,7 +3,7 @@ from pysnmp.hlapi import *
 import ping3
 import time
 
-telegram_bot_api = "6008447382:AAG-tSYm3NXbiMGlk6KXrRpr1AtN9PWLIIA"
+telegram_bot_api = "6008447382:AAG-tSYm3NXbiMGlk6KXrRpr1AtN9PWLIIA" # Telegram Api ID
 
 #Funcion mensajeria Telegram
 def teleSMS(sms):
@@ -60,8 +60,7 @@ print("Comienza el Monitoreo")
 alarmas = {} #inicializamos el diccionario
 alcanzables = {} # inicializamos diccionario de alcanzabilidad
 
-db = pykeepass.PyKeePass(r'\\intranet.sanjuan.edu.ar\DavWWWRoot\rea de Sistemas\Infraestructura IT\Red Interescolar\password.kdbx', password='aITX8QekV9IwS3f8Xij8') # abre la base de datos
-
+db = pykeepass.PyKeePass(r'\\intranet.sanjuan.edu.ar\DavWWWRoot\rea de Sistemas\Infraestructura IT\Red Interescolar\password.kdbx', password='aITX8QekV9IwS3f8Xij8')  # abre la base de datos
 
 while True:
     # itera a través de cada grupo
