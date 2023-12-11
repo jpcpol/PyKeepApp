@@ -30,7 +30,6 @@ def alive(address):
         
 
     if lost >= 2:
-        
         return False
     
     else:
@@ -43,14 +42,16 @@ def getOID(address):
     comunidad = "public"
     puerto = 161
     
-    resultado = next(getCmd(SnmpEngine(),
+    try:
+        resultado = next(getCmd(SnmpEngine(),
                     CommunityData(comunidad),
                     UdpTransportTarget((address, puerto)),
                     ContextData(),
                     ObjectType(ObjectIdentity(oid))))
 
-    try:
+    
         return str(resultado[3][0].prettyPrint()[-3:])
+    
     except:
         teleSMS('Error de getOID')
         return False
