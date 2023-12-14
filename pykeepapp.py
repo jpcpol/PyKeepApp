@@ -61,7 +61,10 @@ print("Comienza el Monitoreo")
 alarmas = {} #inicializamos el diccionario
 alcanzables = {} # inicializamos diccionario de alcanzabilidad
 
-db = pykeepass.PyKeePass(r'\\H:\Unidades compartidas\Operaciones\Mantenimiento\password.kdbx', password='aITX8QekV9IwS3f8Xij8')  # abre la base de datos
+try:
+    db = pykeepass.PyKeePass(r'\\H:\Unidades compartidas\Operaciones\Mantenimiento\password.kdbx', password='aITX8QekV9IwS3f8Xij8')  # abre la base de datos
+except:
+    print('Error de DB')
 
 while True:
     # itera a través de cada grupo
