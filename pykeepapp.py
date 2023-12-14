@@ -60,11 +60,8 @@ def getOID(address):
 print("Comienza el Monitoreo")   
 alarmas = {} #inicializamos el diccionario
 alcanzables = {} # inicializamos diccionario de alcanzabilidad
-db = []
-try:
-    db = pykeepass.PyKeePass('H:\Unidades compartidas\Operaciones\Mantenimiento\password.kdbx', password='aITX8QekV9IwS3f8Xij8')  # abre la base de datos
-except:
-    print('Error de DB')
+
+db = pykeepass.PyKeePass(r'\\intranet.sanjuan.edu.ar\DavWWWRoot\rea de Sistemas\Infraestructura IT\Red Interescolar\password.kdbx', password='aITX8QekV9IwS3f8Xij8')  # abre la base de datos
 
 while True:
     # itera a través de cada grupo
